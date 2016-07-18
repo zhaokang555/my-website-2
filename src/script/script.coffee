@@ -45,7 +45,7 @@ ProjectComp = Vue.extend
     project: null
   ready: ->
     me = @
-    $.getJSON 'http://115.28.21.133:3000/project', (data) -> me.$data.project = data
+    $.getJSON 'http://115.159.67.117:3000/project', (data) -> me.$data.project = data
 
 
 RsumeComp = Vue.extend 
@@ -54,7 +54,7 @@ RsumeComp = Vue.extend
     resume: null
   ready: ->
     me = @
-    $.getJSON 'http://115.28.21.133:3000/resume', (data) -> me.$data.resume = data
+    $.getJSON 'http://115.159.67.117:3000/resume', (data) -> me.$data.resume = data
 
 OthersComp = Vue.extend 
   template: '<card-comp :msg="others"></card-comp>'
@@ -62,7 +62,7 @@ OthersComp = Vue.extend
     others: null
   ready: ->
     me = @
-    $.getJSON 'http://115.28.21.133:3000/others', (data) -> me.$data.others = data
+    $.getJSON 'http://115.159.67.117:3000/others', (data) -> me.$data.others = data
 
 
 # 创建一个路由器实例
