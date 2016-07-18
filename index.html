@@ -10,23 +10,18 @@
 </head>
 <body>
   <!-- app begin -->
-  <div id="app" class="ui sixteen column centered gird">
-    <div class="row">
-      <div class="two wide column">
-        <h1>{{title}}</h1>
-      </div>
+  <div id="app">
+    <h1 class="title">{{title}}</h1>
+    <div class="ui secondary pointing menu orange">
+      <a class="item" v-link="{ path: '/project' }">Project</a>
+      <a class="item" v-link="{ path: '/resume' }">Resume</a>
+      <a class="item" v-link="{ path: '/others' }">Others</a>
     </div>
-
-    <div class="row">
-      <div class="fourteen wide column">
-        <div class="ui secondary pointing menu orange">
-          <a class="item" v-link="{ path: '/project' }">Project</a>
-          <a class="item" v-link="{ path: '/resume' }">Resume</a>
-          <a class="item" v-link="{ path: '/others' }">Others</a>
-        </div>
+    <div class="content-wrapper">
+      <div class="content">
         <!-- 路由外链 -->
         <router-view></router-view>
-      </div>
+      </div> 
     </div>
   </div>
   <!-- app end -->

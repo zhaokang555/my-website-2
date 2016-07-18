@@ -88,7 +88,7 @@ App = Vue.extend
   data: ->
     title: 'Welcome'
   ready: ->
-    console.log 'v3'
+    console.log 'v4'
 
     # 默认跳转到project
     router.go
