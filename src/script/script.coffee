@@ -1,29 +1,10 @@
-UlComp = Vue.extend 
-  props: ['msg']
-  template: 
-    '<ul v-if="msg" class="nav nav-pills nav-stacked">
-      <li class="active">
-        <a style="cursor:default">{{msg.title}}</a>
-      </li>
-      <li v-for="row in msg.contentArr">
-        <a href={{row.url}} target="_blank">
-          {{row.title}}
-          <template v-if="row.memo">
-            <br>
-            {{row.memo}}
-          </template>
-        </a>
-      </li>
-    </ul>
-    <p v-else>loading....</p>'
-Vue.component 'ul-comp', UlComp
 
 CardComp = Vue.extend
-  props: ['msg']
+  props: ['model']
   template: '
     <div>
-      <div v-if="msg" class="ui cards">
-        <div v-for="row in msg.contentArr" class="card">
+      <div v-if="model" class="ui cards">
+        <div v-for="row in model.contentArr" class="card">
           <div class="content">
             <div class="header">{{row.title}}</div>
             <div class="description">{{row.memo}}</div>
@@ -39,8 +20,8 @@ CardComp = Vue.extend
 Vue.component 'card-comp', CardComp
 
 ProjectComp = Vue.extend  
-  # template: '<ul-comp :msg="project"></ul-comp>'
-  template: '<card-comp :msg="project"></card-comp>'
+  # template: '<ul-comp :model="project"></ul-comp>'
+  template: '<card-comp :model="project"></card-comp>'
   data: -> 
     project: null
   ready: ->
@@ -49,7 +30,7 @@ ProjectComp = Vue.extend
 
 
 RsumeComp = Vue.extend 
-  template: '<card-comp :msg="resume"></card-comp>' 
+  template: '<card-comp :model="resume"></card-comp>' 
   data: ->
     resume: null
   ready: ->
@@ -57,7 +38,7 @@ RsumeComp = Vue.extend
     $.getJSON 'http://115.159.67.117:3000/resume', (data) -> me.$data.resume = data
 
 OthersComp = Vue.extend 
-  template: '<card-comp :msg="others"></card-comp>'
+  template: '<card-comp :model="others"></card-comp>'
   data: ->
     others: null
   ready: ->
@@ -67,6 +48,8 @@ OthersComp = Vue.extend
 
 # 创建一个路由器实例
 router = new VueRouter
+  # 配置：
+
   # default: true
   hashbang: false 
 
@@ -86,7 +69,7 @@ App = Vue.extend
   el: ->
     '#app'
   data: ->
-    title: 'Welcome'
+    title: 'Zhao Kang\'s'
   ready: ->
     console.log 'v4'
 
