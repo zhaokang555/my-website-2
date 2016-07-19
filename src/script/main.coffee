@@ -28,7 +28,7 @@ App = Vue.extend
   data: ->
     title: 'Zhao Kang\'s'
   ready: ->
-    console.log 'v1'
+    console.log 'v2'
 
     # 默认跳转到project
     router.go

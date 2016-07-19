@@ -54,7 +54,7 @@ gulp.task('browserify', function() {
 
 // 监视文件的变化
 gulp.task('watch', ['coffee', 'browserify', 'stylus'], function(){
-  gulp.watch('./src/script/*.coffee', ['coffee'])
+  gulp.watch('./src/script/**/*.coffee', ['coffee'])
   gulp.watch('./src/style/*.styl', ['stylus'])
   gulp.watch('./temp/script/*.js', ['browserify'])
 });
