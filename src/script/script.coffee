@@ -34,7 +34,7 @@ RsumeComp = Vue.extend
     resume: null
   ready: ->
     me = @
-    # $.getJSON 'http://115.159.67.117:3000/resume', (data) -> me.$data.resume = data
+    $.getJSON 'http://115.159.67.117:3000/resume', (data) -> me.$data.resume = data
 
 OthersComp = Vue.extend 
   template: '<card-comp :prop="others"></card-comp>'
