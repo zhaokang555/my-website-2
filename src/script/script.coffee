@@ -1,10 +1,10 @@
 
 CardComp = Vue.extend
-  props: ['model']
+  props: ['prop']
   template: '
     <div>
-      <div v-if="model" class="ui cards">
-        <div v-for="row in model.contentArr" class="card">
+      <div v-if="prop" class="ui cards">
+        <div v-for="row in prop.contentArr" class="card">
           <div class="content">
             <div class="header">{{row.title}}</div>
             <div class="description">{{row.memo}}</div>
@@ -15,13 +15,12 @@ CardComp = Vue.extend
           </a>
         </div>
       </div>
-      <p v-else>loading....</p>
+      <div v-else class="ui active text loader">Loading...</div>
     </div>'
 Vue.component 'card-comp', CardComp
 
 ProjectComp = Vue.extend  
-  # template: '<ul-comp :model="project"></ul-comp>'
-  template: '<card-comp :model="project"></card-comp>'
+  template: '<card-comp :prop="project"></card-comp>'
   data: -> 
     project: null
   ready: ->
@@ -30,15 +29,15 @@ ProjectComp = Vue.extend
 
 
 RsumeComp = Vue.extend 
-  template: '<card-comp :model="resume"></card-comp>' 
+  template: '<card-comp :prop="resume"></card-comp>' 
   data: ->
     resume: null
   ready: ->
     me = @
-    $.getJSON 'http://115.159.67.117:3000/resume', (data) -> me.$data.resume = data
+    # $.getJSON 'http://115.159.67.117:3000/resume', (data) -> me.$data.resume = data
 
 OthersComp = Vue.extend 
-  template: '<card-comp :model="others"></card-comp>'
+  template: '<card-comp :prop="others"></card-comp>'
   data: ->
     others: null
   ready: ->
