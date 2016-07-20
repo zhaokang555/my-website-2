@@ -1,4 +1,5 @@
 CardComp = require './card-comp'
+
 Vue.component 'card-comp', CardComp
 
 RsumeComp = Vue.extend 
@@ -7,6 +8,8 @@ RsumeComp = Vue.extend
     resume: null
   ready: ->
     me = @
-    $.getJSON 'http://115.159.67.117:3000/resume', (data) -> me.$data.resume = data
+    Vue.http.get('http://115.159.67.117:3000/resume').then (res) ->
+      console.log res
+      me.resume = res.json()
 
 module.exports = RsumeComp

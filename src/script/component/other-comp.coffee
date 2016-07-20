@@ -7,6 +7,7 @@ OthersComp = Vue.extend
     others: null
   ready: ->
     me = @
-    $.getJSON 'http://115.159.67.117:3000/others', (data) -> me.$data.others = data
-
+    Vue.http.get('http://115.159.67.117:3000/others').then (res) ->
+      console.log res
+      me.others = res.json()
 module.exports = OthersComp

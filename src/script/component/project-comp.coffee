@@ -7,6 +7,7 @@ ProjectComp = Vue.extend
     project: null
   ready: ->
     me = @
-    $.getJSON 'http://115.159.67.117:3000/project', (data) -> me.$data.project = data
-
+    Vue.http.get('http://115.159.67.117:3000/project').then (res) ->
+      console.log res
+      me.project = res.json()
 module.exports = ProjectComp

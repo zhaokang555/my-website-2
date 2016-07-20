@@ -1,7 +1,10 @@
-CardComp = require './component/card-comp'
+VueRouter = require 'vue-router'
+VueResource = require 'vue-resource'
 ProjectComp = require './component/project-comp'
 RsumeComp = require './component/resume-comp'
 OthersComp = require './component/other-comp'
+
+Vue.use VueResource
 
 # 创建一个路由器实例
 router = new VueRouter
@@ -28,7 +31,7 @@ App = Vue.extend
   data: ->
     title: 'Zhao Kang\'s'
   ready: ->
-    console.log 'v2'
+    console.log 'v6'
 
     # 默认跳转到project
     router.go
